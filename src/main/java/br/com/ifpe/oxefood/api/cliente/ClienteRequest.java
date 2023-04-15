@@ -1,4 +1,5 @@
 package br.com.ifpe.oxefood.api.cliente;
+
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -31,6 +32,7 @@ public class ClienteRequest {
        return Cliente.builder()
                .nome(nome)
                .cpf(cpf)
+               .dataNascimento(dataNascimento)
                .foneCelular(foneCelular)
                .foneFixo(foneFixo)
                .build();
