@@ -21,6 +21,20 @@ public class ClienteService extends GenericService {
        return repository.save(cliente);
    }
 
+   @Transactional
+   public void update(Long id, Cliente clienteAlterado) {
+
+      Cliente cliente = repository.findById(id).get();
+      cliente.setNome(clienteAlterado.getNome());
+      cliente.setDataNascimento(clienteAlterado.getDataNascimento());
+      cliente.setCpf(clienteAlterado.getCpf());
+      cliente.setFoneCelular(clienteAlterado.getFoneCelular());
+      cliente.setFoneFixo(clienteAlterado.getFoneFixo());
+	    
+      super.preencherCamposAuditoria(cliente);
+      repository.save(cliente);
+  }
+
    public List<Cliente> listarTodos() {
   
     return repository.findAll();
@@ -32,27 +46,13 @@ public Cliente obterPorID(Long id) {
 }
 
 @Transactional
-   public void update(Long id, Cliente clienteAlterado) {
+public void delete(Long id) {
 
-      Cliente cliente = repository.findById(id).get();
-      cliente.setNome(clienteAlterado.getNome());
-      cliente.setDataNascimento(clienteAlterado.getDataNascimento());
-      cliente.setCpf(clienteAlterado.getCpf());
-      cliente.setFoneCelular(clienteAlterado.getFoneCelular());
-      cliente.setFoneFixo(clienteAlterado.getFoneFixo());    
-      super.preencherCamposAuditoria(cliente);
-      repository.save(cliente);
-  }
+    Cliente cliente = repository.findById(id).get();
+    cliente.setHabilitado(Boolean.FALSE);
+    super.preencherCamposAuditoria(cliente);
 
-  @Transactional
-   public void delete(Long id) {
-
-       Cliente cliente = repository.findById(id).get();
-       cliente.setHabilitado(Boolean.FALSE);
-       super.preencherCamposAuditoria(cliente);
-
-       repository.save(cliente);
-   }
-
+    repository.save(cliente);
+}
 
 }

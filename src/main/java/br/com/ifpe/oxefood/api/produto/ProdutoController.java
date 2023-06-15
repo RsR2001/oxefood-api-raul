@@ -28,7 +28,8 @@ public class ProdutoController extends GenericController {
    private ProdutoService produtoService;
 
    @PostMapping
-   public ResponseEntity<Produto> save(@RequestBody @Valid ProdutoRequest request) { 
+   public ResponseEntity<Produto> save(@RequestBody @Valid ProdutoRequest request) {
+
        Produto produto = produtoService.save(request.build());
        return new ResponseEntity<Produto>(produto, HttpStatus.CREATED);
    }
@@ -43,19 +44,16 @@ public class ProdutoController extends GenericController {
 
        return produtoService.obterPorID(id);
    }
-
    @PutMapping("/{id}")
    public ResponseEntity<Produto> update(@PathVariable("id") Long id, @RequestBody ProdutoRequest request) {
 
        produtoService.update(id, request.build());
        return ResponseEntity.ok().build();
    }
-
    @DeleteMapping("/{id}")
    public ResponseEntity<Void> delete(@PathVariable Long id) {
 
        produtoService.delete(id);
        return ResponseEntity.ok().build();
    }
-
 }

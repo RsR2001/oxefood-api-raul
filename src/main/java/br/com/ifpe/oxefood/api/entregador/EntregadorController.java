@@ -27,8 +27,9 @@ public class EntregadorController extends GenericController {
    @Autowired
    private EntregadorService entregadorService;
 
-       @PostMapping             
-   public ResponseEntity<Entregador> save(@RequestBody @Valid EntregadorRequest request) { 
+   @PostMapping
+   public ResponseEntity<Entregador> save(@RequestBody @Valid EntregadorRequest request) {
+
        Entregador entregador = entregadorService.save(request.build());
        return new ResponseEntity<Entregador>(entregador, HttpStatus.CREATED);
    }
@@ -43,14 +44,12 @@ public class EntregadorController extends GenericController {
 
        return entregadorService.obterPorID(id);
    }
-
    @PutMapping("/{id}")
    public ResponseEntity<Entregador> update(@PathVariable("id") Long id, @RequestBody EntregadorRequest request) {
 
        entregadorService.update(id, request.build());
        return ResponseEntity.ok().build();
    }
-
    @DeleteMapping("/{id}")
    public ResponseEntity<Void> delete(@PathVariable Long id) {
 

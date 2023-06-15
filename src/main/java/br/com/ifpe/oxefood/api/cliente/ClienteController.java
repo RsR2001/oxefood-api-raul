@@ -27,11 +27,12 @@ public class ClienteController extends GenericController {
    private ClienteService clienteService;
 
    @PostMapping
-   public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) { 
+   public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
+
        Cliente cliente = clienteService.save(request.build());
        return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
    }
-
+   
    @GetMapping
    public List<Cliente> listarTodos() {
   
@@ -43,7 +44,6 @@ public class ClienteController extends GenericController {
 
        return clienteService.obterPorID(id);
    }
-
    @PutMapping("/{id}")
    public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody ClienteRequest request) {
 
@@ -58,6 +58,4 @@ public class ClienteController extends GenericController {
        return ResponseEntity.ok().build();
    }
 
-
 }
-

@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,20 +26,20 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cliente extends EntidadeAuditavel  {
-
-   @Column
+    @Column
    private String nome;
-
-   @Column
+   
+   @JsonFormat(pattern = "dd/MM/yyyy")
+    @Column
    private LocalDate dataNascimento;
 
-   @Column
+    @Column
    private String cpf;
 
-   @Column
+    @Column
    private String foneCelular;
-
-   @Column
+   
+    @Column
    private String foneFixo;
 
 }

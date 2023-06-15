@@ -28,11 +28,12 @@ public class CompradorController extends GenericController {
    private CompradorService compradorService;
 
    @PostMapping
-   public ResponseEntity<Comprador> save(@RequestBody @Valid CompradorRequest request) { 
+   public ResponseEntity<Comprador> save(@RequestBody @Valid CompradorRequest request) {
+
        Comprador comprador = compradorService.save(request.build());
        return new ResponseEntity<Comprador>(comprador, HttpStatus.CREATED);
    }
-
+   
    @GetMapping
    public List<Comprador> listarTodos() {
   
@@ -44,7 +45,6 @@ public class CompradorController extends GenericController {
 
        return compradorService.obterPorID(id);
    }
-
    @PutMapping("/{id}")
    public ResponseEntity<Comprador> update(@PathVariable("id") Long id, @RequestBody CompradorRequest request) {
 
@@ -58,9 +58,6 @@ public class CompradorController extends GenericController {
        compradorService.delete(id);
        return ResponseEntity.ok().build();
    }
-
-
-
 }
 
 

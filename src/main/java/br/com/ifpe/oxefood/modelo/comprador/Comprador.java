@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,26 +26,27 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comprador extends EntidadeAuditavel  {
-
-    @Column
-    private String nome;
-
-    @Column
-    private String enderecoComercial;
- 
-    @Column
-    private String enderecoResidencial;
- 
-    @Column
-    private double comissao;
- 
-    @Column
-    private boolean trabahoHomeOffice;
- 
-    @Column
-    private int qtdComprasMediasMes;
    
     @Column
-    private LocalDate contratadoEm;
+   private String nome;
+
+    @Column
+   private String enderecoComercial;
+
+    @Column
+   private String enderecoResidencial;
+   
+    @Column
+   private Double comissao ;
+
+    @Column
+   private Boolean trabahoHomeOffice;
+
+   @Column
+   private Integer qtdComprasMediasMes;
+
+   @JsonFormat(pattern = "dd/MM/yyyy")
+    @Column
+   private LocalDate contratadoEm;
 
 }

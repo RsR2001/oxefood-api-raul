@@ -26,54 +26,54 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Entregador extends EntidadeAuditavel  {
+    
+    @Column
+   private String nome;
 
     @Column
-    private String nome;
-    
-    @Column
-    private String cpf;
-    
-    @Column
-    private String rg;
-    
-    @Column
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataNascimento;
+   private String cpf;
 
     @Column
-    private String foneCelular;
- 
+   private String rg;
+   
+   @Column
+   @JsonFormat(pattern = "dd/MM/yyyy")
+   private LocalDate dataNascimento;
+
     @Column
-    private String foneFixo;
- 
+   private String foneCelular;
+
     @Column
-    private Integer qtdEntregasRealizadas;
- 
+   private String foneFixo;
+
     @Column
-    private double valorFrete;
- 
+   private Integer qtdEntregasRealizadas;
+
     @Column
-    private String enderecoRua;
- 
+   private Double valorFrete;
+    
     @Column
-    private String enderecoNumero;
- 
+   private String enderecoRua;
+   
     @Column
-    private String enderecoBairro;
- 
+   private String enderecoNumero;
+   
     @Column
-    private String enderecoCidade;
- 
+   private String enderecoBairro;
+   
     @Column
-    private String enderecoCep;
- 
+   private String enderecoCidade;
+    
+    @Column
+   private String enderecoCep;
+   
     @Column
     private String enderecoUf;
- 
+
     @Column
     private String enderecoComplemento;
- 
+
     @Column
-    private boolean ativo;
+    private Boolean ativo;
 
 }

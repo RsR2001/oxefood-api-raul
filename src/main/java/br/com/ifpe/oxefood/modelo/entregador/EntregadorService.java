@@ -20,19 +20,9 @@ public class EntregadorService extends GenericService {
 
        super.preencherCamposAuditoria(entregador);
        return repository.save(entregador);
-   }
-   
-   public List<Entregador> listarTodos() {
-  
-    return repository.findAll();
-}
+    }
 
-public Entregador obterPorID(Long id) {
-
-    return repository.findById(id).get();
-}
-
-@Transactional
+    @Transactional
    public void update(Long id, Entregador entregadorAlterado) {
 
       Entregador entregador = repository.findById(id).get();
@@ -44,23 +34,33 @@ public Entregador obterPorID(Long id) {
       entregador.setFoneFixo(entregadorAlterado.getFoneFixo());
       entregador.setQtdEntregasRealizadas(entregadorAlterado.getQtdEntregasRealizadas());
       entregador.setValorFrete(entregadorAlterado.getValorFrete());
-      entregador.setEnderecoRua(entregadorAlterado.getEnderecoRua());
       entregador.setEnderecoNumero(entregadorAlterado.getEnderecoNumero());
+      entregador.setEnderecoRua(entregadorAlterado.getEnderecoRua());
       entregador.setEnderecoBairro(entregadorAlterado.getEnderecoBairro());
       entregador.setEnderecoCidade(entregadorAlterado.getEnderecoCidade());
       entregador.setEnderecoCep(entregadorAlterado.getEnderecoCep());
       entregador.setEnderecoUf(entregadorAlterado.getEnderecoUf());
       entregador.setEnderecoComplemento(entregadorAlterado.getEnderecoComplemento());
-      entregador.setAtivo(entregadorAlterado.isAtivo());
-
+      entregador.setAtivo(entregadorAlterado.getAtivo());
+	    
       super.preencherCamposAuditoria(entregador);
       repository.save(entregador);
   }
 
-  @Transactional
+   public List<Entregador> listarTodos() {
+  
+    return repository.findAll();
+    }
+
+    public Entregador obterPorID(Long id) {
+
+    return repository.findById(id).get();
+    }
+
+    @Transactional
    public void delete(Long id) {
 
-       Entregador entregador = repository.findById(id).get();
+      Entregador entregador = repository.findById(id).get();
        entregador.setHabilitado(Boolean.FALSE);
        super.preencherCamposAuditoria(entregador);
 

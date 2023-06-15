@@ -18,23 +18,20 @@ public class ProdutoRequest {
 
    private String descricao;
 
-   private double valorUnitario;
+   private Double valorUnitario;
 
    private Integer tempoEntregaMinimo;
 
    private Integer tempoEntregaMaximo;
-
-
-
    public Produto build() {
 
-      return Produto.builder()
-             .codigo(codigo)
-             .titulo(titulo)
-             .descricao(descricao)
-             .valorUnitario(valorUnitario)
-             .tempoEntregaMinimo(tempoEntregaMinimo)
-             .tempoEntregaMaximo(tempoEntregaMaximo)
-              .build();
-  }
+       return Produto.builder()
+               .codigo(codigo)
+               .titulo(titulo)
+               .descricao(descricao)
+               .valorUnitario(valorUnitario)
+               .tempoEntregaMinimo(tempoEntregaMinimo)
+               .tempoEntregaMaximo(tempoEntregaMaximo)
+               .build();
+   }
 }

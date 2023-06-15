@@ -20,14 +20,14 @@ public class CompradorRequest {
 
    private String enderecoComercial;
 
-   private String enderecoResidencial;
+   private String enderecoResidencial ;
 
-   private double comissao;
+   private Double comissao;
 
-   private boolean trabahoHomeOffice;
+   private Boolean trabahoHomeOffice ;
 
    private int qtdComprasMediasMes;
-  
+
    @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate contratadoEm;
 

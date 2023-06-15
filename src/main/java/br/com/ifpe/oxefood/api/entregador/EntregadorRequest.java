@@ -19,9 +19,9 @@ public class EntregadorRequest {
    private String nome;
 
    private String cpf;
-   
+
    private String rg;
-   
+
    @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate dataNascimento;
 
@@ -31,23 +31,23 @@ public class EntregadorRequest {
 
    private Integer qtdEntregasRealizadas;
 
-   private double valorFrete;
-
+   private Double valorFrete;
+    
    private String enderecoRua;
-
+  
    private String enderecoNumero;
-
+  
    private String enderecoBairro;
-
+  
    private String enderecoCidade;
 
    private String enderecoCep;
-
+ 
    private String enderecoUf;
 
    private String enderecoComplemento;
 
-   private boolean ativo;
+   private Boolean ativo;
 
    public Entregador build() {
 
@@ -55,9 +55,9 @@ public class EntregadorRequest {
                .nome(nome)
                .cpf(cpf)
                .rg(rg)
-               .dataNascimento(dataNascimento)
                .foneCelular(foneCelular)
                .foneFixo(foneFixo)
+               .dataNascimento(dataNascimento)
                .qtdEntregasRealizadas(qtdEntregasRealizadas)
                .valorFrete(valorFrete)
                .enderecoRua(enderecoRua)

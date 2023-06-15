@@ -22,16 +22,6 @@ public class CompradorService extends GenericService {
        return repository.save(comprador);
    }
 
-   public List<Comprador> listarTodos() {
-  
-    return repository.findAll();
-}
-
-public Comprador obterPorID(Long id) {
-
-    return repository.findById(id).get();
-}
-
 @Transactional
    public void update(Long id, Comprador compradorAlterado) {
 
@@ -40,21 +30,31 @@ public Comprador obterPorID(Long id) {
       comprador.setEnderecoComercial(compradorAlterado.getEnderecoComercial());
       comprador.setEnderecoResidencial(compradorAlterado.getEnderecoResidencial());
       comprador.setComissao(compradorAlterado.getComissao());
-      comprador.setTrabahoHomeOffice(compradorAlterado.isTrabahoHomeOffice());
+      comprador.setTrabahoHomeOffice(compradorAlterado.getTrabahoHomeOffice());
       comprador.setQtdComprasMediasMes(compradorAlterado.getQtdComprasMediasMes());
-      comprador.setContratadoEm(compradorAlterado.getContratadoEm());    
+      comprador.setContratadoEm(compradorAlterado.getContratadoEm());   
       super.preencherCamposAuditoria(comprador);
       repository.save(comprador);
   }
 
-  @Transactional
-   public void delete(Long id) {
+  public List<Comprador> listarTodos() {
+  
+    return repository.findAll();
+    }
 
-       Comprador comprador = repository.findById(id).get();
-       comprador.setHabilitado(Boolean.FALSE);
-       super.preencherCamposAuditoria(comprador);
+    public Comprador obterPorID(Long id) {
 
-       repository.save(comprador);
-   }
+    return repository.findById(id).get();
+    }
+    
+    public void delete(Long id) {
+
+        Comprador comprador = repository.findById(id).get();
+         comprador.setHabilitado(Boolean.FALSE);
+         super.preencherCamposAuditoria(comprador);
+  
+         repository.save(comprador);
+     }
+  
 
 }
