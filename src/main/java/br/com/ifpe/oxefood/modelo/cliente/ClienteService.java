@@ -39,8 +39,7 @@ public Cliente obterPorID(Long id) {
       cliente.setDataNascimento(clienteAlterado.getDataNascimento());
       cliente.setCpf(clienteAlterado.getCpf());
       cliente.setFoneCelular(clienteAlterado.getFoneCelular());
-      cliente.setFoneFixo(clienteAlterado.getFoneFixo());
-	    
+      cliente.setFoneFixo(clienteAlterado.getFoneFixo());    
       super.preencherCamposAuditoria(cliente);
       repository.save(cliente);
   }
