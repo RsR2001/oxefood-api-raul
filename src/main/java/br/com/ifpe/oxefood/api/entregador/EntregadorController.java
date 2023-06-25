@@ -28,11 +28,12 @@ public class EntregadorController extends GenericController {
    private EntregadorService entregadorService;
 
    @PostMapping
-   public ResponseEntity<Entregador> save(@RequestBody @Valid EntregadorRequest request) {
+    public ResponseEntity<Entregador> save(@RequestBody @Valid EntregadorRequest request) {
 
-       Entregador entregador = entregadorService.save(request.build());
-       return new ResponseEntity<Entregador>(entregador, HttpStatus.CREATED);
-   }
+        Entregador entregadorNovo = request.build();
+        Entregador entregador = entregadorService.save(entregadorNovo);
+        return new ResponseEntity<Entregador>(entregador, HttpStatus.CREATED);
+    }
    @GetMapping
    public List<Entregador> listarTodos() {
   
