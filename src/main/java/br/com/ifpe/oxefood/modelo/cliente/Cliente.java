@@ -29,12 +29,12 @@ public class Cliente extends EntidadeAuditavel  {
     @Column
    private String nome;
    
-   @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column
-   private LocalDate dataNascimento;
-
-    @Column
+   @Column
    private String cpf;
+
+   @JsonFormat(pattern = "dd/MM/yyyy")
+   @Column
+   private LocalDate dataNascimento;
 
     @Column
    private String foneCelular;

@@ -18,11 +18,11 @@ public class ClienteRequest {
 
    private String nome;
 
+   private String cpf;
+   
    @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate dataNascimento;
-
-   private String cpf;
-
+   
    private String foneCelular;
 
    private String foneFixo;
@@ -31,8 +31,8 @@ public class ClienteRequest {
 
        return Cliente.builder()
                .nome(nome)
-               .dataNascimento(dataNascimento)
                .cpf(cpf)
+               .dataNascimento(dataNascimento)
                .foneCelular(foneCelular)
                .foneFixo(foneFixo)
                .build();
