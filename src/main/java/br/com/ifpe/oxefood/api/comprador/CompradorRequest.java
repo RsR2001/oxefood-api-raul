@@ -2,6 +2,11 @@ package br.com.ifpe.oxefood.api.comprador;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.ifpe.oxefood.modelo.comprador.Comprador;
@@ -16,6 +21,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CompradorRequest {
 
+   @NotNull(message = "O Nome é de preenchimento obrigatório")
+   @NotBlank(message = "O Nome é de preenchimento obrigatório")
+   @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
    private String nome;
 
    private String enderecoComercial;
