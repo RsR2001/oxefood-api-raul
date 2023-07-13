@@ -21,6 +21,7 @@ public class ClienteService extends GenericService {
     @Transactional
     public Cliente save(Cliente cliente) {
 
+        usuarioService.save(cliente.getUsuario());
         super.preencherCamposAuditoria(cliente);
         return repository.save(cliente);
     }
