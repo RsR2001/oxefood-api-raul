@@ -23,6 +23,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * @author Roberto Alencar
+ *
+ */
 @Entity
 @Table(name = "Cliente")
 @Where(clause = "habilitado = true")
@@ -31,7 +35,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente extends EntidadeAuditavel {
+public class Cliente extends EntidadeAuditavel  {
+    
+    private static final long serialVersionUID = -9147515922627050356L;
 
     @ManyToOne
     @JoinColumn(nullable = false)
@@ -44,13 +50,13 @@ public class Cliente extends EntidadeAuditavel {
     @Column(nullable = false, length = 100)
     private String nome;
 
-    @Column
+    @Column(nullable = false)
     private LocalDate dataNascimento;
 
     @Column(unique = true)
     private String cpf;
 
-    @Column
+    @Column(nullable = false, length = 100)
     private String foneCelular;
 
     @Column

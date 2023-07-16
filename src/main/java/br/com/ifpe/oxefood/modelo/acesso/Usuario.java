@@ -1,5 +1,7 @@
 package br.com.ifpe.oxefood.modelo.acesso;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -34,42 +36,43 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Usuario extends EntidadeNegocio implements UserDetails {
 
-   private static final long serialVersionUID = -2660334839251150243L;
+    private static final long serialVersionUID = -2660334839251150243L;
 
-   public static final String ROLE_CLIENTE = "CLIENTE";
-   public static final String ROLE_EMPRESA = "EMPRESA";
+    public static final String ROLE_CLIENTE = "CLIENTE";
+    public static final String ROLE_EMPRESA = "EMPRESA";
 
-   @Column(nullable = false, unique = true)
-   private String username;
+    @Column(nullable = false, unique = true)
+    private String username;
 
-   @JsonIgnore
-   @Column(nullable = false)
-   private String password;
+    @JsonIgnore
+    @Column(nullable = false)
+    private String password;
 
-   @JsonIgnore
-   @ElementCollection(fetch = FetchType.EAGER)
-   @Builder.Default
-   private List<String> roles = new ArrayList<>();
+    @JsonIgnore
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Builder.Default
+    private List<String> roles = new ArrayList<>();
 
-   @JsonIgnore
-   @Override
-   public Collection<? extends GrantedAuthority> getAuthorities() {
-       return this.roles.stream().map(SimpleGrantedAuthority::new).collect(toList());
-   }
+    @JsonIgnore
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+	    return this.roles.stream().map(SimpleGrantedAuthority::new).collect(toList());
+    }
 
-   public boolean isAccountNonExpired() {
-       return true;
-   }
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
-   public boolean isAccountNonLocked() {
-       return true;
-   }
+    public boolean isAccountNonLocked() {
+        return true;
+    }
 
-   public boolean isCredentialsNonExpired() {
-       return true;
-   }
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
 
-   public boolean isEnabled() {
-       return getHabilitado();
-   }
+    public boolean isEnabled() {
+        return getHabilitado();
+    }
+
 }

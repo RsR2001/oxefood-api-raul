@@ -13,8 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AuthenticationRequest implements Serializable {
 
+    private static final long serialVersionUID = 7526932841380892557L;
+
     private String username;
 
     private String password;
-    
+
 }

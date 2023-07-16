@@ -39,7 +39,7 @@ public class ClienteRequest {
    @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate dataNascimento;
    
-   @Length(min = 8, max = 20, message = "O campo Fone tem que ter entre {min} e {max} caracteres")
+   @Length(min = 9, max = 20, message = "O campo Fone tem que ter entre {min} e {max} caracteres")
    private String foneCelular;
 
    private String foneFixo;

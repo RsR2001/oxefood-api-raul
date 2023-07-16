@@ -1,3 +1,5 @@
+package br.com.ifpe.oxefood.config;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -15,9 +17,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import br.com.ifpe.oxefood.modelo.acesso.Usuario;
 import br.com.ifpe.oxefood.modelo.acesso.UsuarioService;
-import br.com.ifpe.oxefood.security.jwt.JwtAuthenticationEntryPoint;
-import br.com.ifpe.oxefood.security.jwt.JwtTokenAuthenticationFilter;
-import br.com.ifpe.oxefood.security.jwt.JwtTokenProvider;
+import br.com.ifpe.oxefood.modelo.security.jwt.JwtAuthenticationEntryPoint;
+import br.com.ifpe.oxefood.modelo.security.jwt.JwtTokenAuthenticationFilter;
+import br.com.ifpe.oxefood.modelo.security.jwt.JwtTokenProvider;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
