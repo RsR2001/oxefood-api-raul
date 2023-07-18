@@ -8,8 +8,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ifpe.oxefood.modelo.acesso.Usuario;
-import br.com.ifpe.oxefood.modelo.acesso.UsuarioRepository;
 import br.com.ifpe.oxefood.modelo.acesso.UsuarioService;
 import br.com.ifpe.oxefood.util.entity.GenericService;
 import br.com.ifpe.oxefood.util.exception.EntidadeNaoEncontradaException;
